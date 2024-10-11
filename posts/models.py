@@ -20,6 +20,8 @@ class Post(models.Model):
     
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
+    slug = models.SlugField()
+    
     def __str__(self):
         return self.title
     
