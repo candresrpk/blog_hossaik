@@ -5,6 +5,7 @@ from .views import (
     PostCreateView,
     PostDeleteView,
     PostUpdateView,
+    like,
 )
 
 
@@ -13,9 +14,10 @@ app_name = 'posts'
 
 urlpatterns = [
     path('list/', PostListView.as_view(), name='posts_list'),
-    path('detail/<slug>/', PostDetailView.as_view(), name='posts_detail'),
     path('create/', PostCreateView.as_view(), name='posts_create'),
-    path('delete/<id>/', PostDeleteView.as_view(), name='posts_delete'),
-    path('update/<id>/', PostUpdateView.as_view(), name='posts_update'),
+    path('detail/<slug>/', PostDetailView.as_view(), name='posts_detail'),
+    path('delete/<slug>/', PostDeleteView.as_view(), name='posts_delete'),
+    path('update/<slug>/', PostUpdateView.as_view(), name='posts_update'),
+    path('like/<slug>/', like, name='post_like'),
     
 ]
